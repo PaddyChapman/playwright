@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://writer.com/');
 });
 
-test('Assert page title and avigate to careers', async ({ page }) => {  
+test('Assert page title and navigate to careers', async ({ page }) => {  
     // Expect the correct page to load with a title
     await expect(page).toHaveTitle(/Writer/);
 
@@ -16,7 +16,7 @@ test('Assert page title and avigate to careers', async ({ page }) => {
     await expect(page.getByRole('link', { name: 'Open positions' })).toBeVisible();
   });
 
-  test('API test for sign in without auth', async({ page, request }) => {
+test('API test for sign in without auth', async({ page, request }) => {
 
     // Click the login button
     await page.getByText('Sign in').click();
@@ -25,5 +25,5 @@ test('Assert page title and avigate to careers', async ({ page }) => {
     const url = 'https://app.writer.com/api/auth/permission'
     const loginResponse = await request.get(url)
     expect (loginResponse.status()).toBe(401)
-  })
+})
 
